@@ -1,12 +1,7 @@
 import axios from "axios";
-import React, { useState, useContext, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import reducer from "./reducer";
 
-const table = {
-  sports: 21,
-  history: 23,
-  politics: 24,
-};
 const initialState = {
   waiting: true,
   loading: true,
@@ -26,6 +21,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //fetch Question
   const fetchQuestion = async (url) => {
     dispatch({ type: "LOADING" });
     const response = await axios(url).catch((err) => console.log(err));
@@ -61,7 +57,7 @@ const AppProvider = ({ children }) => {
     });
 
     const { amount, category, difficulty } = quiz;
-    const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
+    const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${category}&type=multiple`;
     fetchQuestion(url);
   };
 

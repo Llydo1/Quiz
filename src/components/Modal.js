@@ -15,7 +15,7 @@ const Modal = () => {
           You answered of {((correct / questions.length) * 100).toFixed(0)}%
           questions correctly
         </p>
-        <button className="close-btn" onClick={playAgain}>
+        <button className="close-btn btn" onClick={playAgain}>
           play again
         </button>
       </div>

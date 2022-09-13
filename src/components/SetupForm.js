@@ -1,10 +1,12 @@
 import React from "react";
 import { useGlobalContext } from "../context";
+import { table } from "../data/data";
 
+const category = ["sports", "history", "politics"];
 const SetupForm = () => {
   const { handleSubmit, error } = useGlobalContext();
   return (
-    <section className="quiz quiz-small">
+    <section className="setup quiz-small">
       <form className="setup-form">
         <h2>setup quiz</h2>
         {/* Amount  */}
@@ -24,9 +26,14 @@ const SetupForm = () => {
         <div className="form-control">
           <label htmlFor="category">category</label>
           <select name="category" id="category" className="form-input">
-            <option value="sports">sports</option>
+            {table.map((single, index) => (
+              <option key={index} value={single.value}>
+                {single.category}
+              </option>
+            ))}
+            {/* <option value="sports">sports</option>
             <option value="history">history</option>
-            <option value="politics">politics</option>
+            <option value="politics">politics</option> */}
           </select>
         </div>
         {/* difficulty */}
@@ -43,7 +50,7 @@ const SetupForm = () => {
             Could not load questions set, please choose another options
           </p>
         )}
-        <button type="submit" className="submit-btn" onClick={handleSubmit}>
+        <button type="submit" className="submit-btn btn" onClick={handleSubmit}>
           start
         </button>
       </form>
