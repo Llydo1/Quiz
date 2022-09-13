@@ -186,6 +186,11 @@ main {
   background: var(--clr-primary-5);
   color: var(--clr-white);
 }
+.answer-selected{
+  background: var(--clr-primary-5);
+  color: var(--clr-white);
+  border-color: #4196D3;
+}
 .correct-answers {
   font-size: 1rem;
   margin-bottom: 2rem;
@@ -194,7 +199,13 @@ main {
   letter-spacing: var(--spacing);
   color: var(--clr-green-dark);
 }
-.next-question,
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-question,
 .close-btn,
 .submit-btn {
   border-radius: var(--radius);
@@ -202,7 +213,6 @@ main {
   padding: 0.25rem 0.5rem;
   display: block;
   width: 35%;
-  margin-left: auto;
   margin-top: 2rem;
   text-transform: capitalize;
   font-weight: 700;
@@ -213,7 +223,8 @@ main {
   transition: var(--transition);
   cursor: pointer;
 }
-.next-question:hover {
+
+.button-question:hover {
   background: #805900;
   color: #ffb100;
 }
@@ -308,4 +319,5 @@ Loading
 }
 .close-btn {
   margin-right: auto;
+  margin-left: auto;
 }
